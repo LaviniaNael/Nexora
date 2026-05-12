@@ -38,7 +38,7 @@ export function Showcase() {
         scrollTrigger: {
           trigger: root.current,
           start: "top top",
-          end: () => `+=${Math.max(1, panelsEl.length) * 900}`,
+          end: () => `+=${Math.max(1, panelsEl.length) * 800}`,
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -53,7 +53,7 @@ export function Showcase() {
         // enter
         tl.fromTo(
           panel,
-          { autoAlpha: 0, y: 50, filter: "blur(14px)" },
+          { autoAlpha: 0, y: 40, filter: "blur(14px)" },
           { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power3.out" },
           label,
         );
@@ -61,7 +61,7 @@ export function Showcase() {
         if (media) {
           tl.fromTo(
             media,
-            { yPercent: 8, rotateX: -8, transformPerspective: 1000, autoAlpha: 0.7 },
+            { yPercent: 10, rotateX: -8, transformPerspective: 1000, autoAlpha: 0.7 },
             { yPercent: 0, rotateX: 0, autoAlpha: 1, duration: 0.35, ease: "power3.out" },
             label,
           );
@@ -80,7 +80,7 @@ export function Showcase() {
   }, []);
 
   return (
-    <section ref={root} className="relative py-32">
+    <section ref={root} className="relative pt-22 h-screen">
       <div className="container-px mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">Platform</p>
@@ -89,12 +89,12 @@ export function Showcase() {
           </h2>
         </div>
 
-        <div className="relative mt-20">
+        <div className="relative min-h-[min(85vh,52rem)] lg:min-h-[min(85vh,24rem)]">
           {panels.map((p, i) => (
             <div
               key={p.title}
               data-showcase-panel
-              className={`absolute inset-0 grid items-center gap-10 lg:grid-cols-2 ${
+              className={`absolute inset-0 isolate grid items-center gap-10 lg:grid-cols-2 ${
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
               style={{ opacity: i === 0 ? 1 : 0, visibility: i === 0 ? "visible" : "hidden" }}

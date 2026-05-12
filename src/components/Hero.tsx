@@ -96,16 +96,16 @@ export function Hero() {
             <span>Now shipping AI-native enterprise platforms</span>
           </div>
 
-          <h1 className="mt-6 font-display text-[clamp(2.6rem,7vw,5.4rem)] font-semibold leading-[0.98] tracking-tight">
-            <span className="block overflow-hidden">
+          <h1 className="mt-6 font-display text-[clamp(2.6rem,6vw,5rem)] font-semibold leading-[0.98] tracking-tight">
+            <span className="block">
               <span data-hero-line className="block text-gradient">Engineering</span>
             </span>
-            <span className="block overflow-hidden">
-              <span data-hero-line className="block">
+            <span className="block">
+              <span data-hero-line className="block ">
                 <span className="text-gradient-magenta">Intelligent</span> Digital
               </span>
             </span>
-            <span className="block overflow-hidden">
+            <span className="block">
               <span data-hero-line className="block text-gradient">Systems.</span>
             </span>
           </h1>
@@ -118,7 +118,7 @@ export function Hero() {
             companies engineering the next decade of work.
           </p>
 
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col justify-center items-center gap-3 sm:flex-row">
             <Link
               data-hero-cta
               to="/contact"

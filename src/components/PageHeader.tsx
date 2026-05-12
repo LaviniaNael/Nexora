@@ -12,7 +12,7 @@ export function PageHeader({
   subtitle?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden pt-40 pb-16">
+    <section className="relative overflow-hidden h-screen flex items-center justify-center">
       <div className="absolute inset-0 -z-10 bg-grid mask-fade-b opacity-50" />
       <div
         className="pointer-events-none absolute -top-20 left-1/2 h-[28rem] w-[60rem] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
