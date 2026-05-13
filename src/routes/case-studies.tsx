@@ -5,16 +5,16 @@ import { ArrowUpRight } from "lucide-react";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies — Nexora" },
+      { title: "Case Studies — Procode Egypt" },
       {
         name: "description",
         content:
-          "How Nexora helped enterprises ship intelligent systems at scale — selected case studies.",
+          "How Procode Egypt helped SMEs and NGOs with Hassle-Free Technology — selected success stories.",
       },
-      { property: "og:title", content: "Case Studies — Nexora" },
+      { property: "og:title", content: "Case Studies — Procode Egypt" },
       {
         property: "og:description",
-        content: "Selected work shipping intelligent systems at scale.",
+        content: "Success stories from Egyptian businesses.",
       },
     ],
   }),
@@ -23,40 +23,40 @@ export const Route = createFileRoute("/case-studies")({
 
 const cases = [
   {
-    client: "Northwind Logistics",
-    industry: "Supply chain",
-    headline: "Real-time route optimization across 14 countries.",
-    metric: "−42% fuel cost",
+    client: "Cairo NGO",
+    industry: "Non-profit",
+    headline: "Complete IT infrastructure setup with unlimited support.",
+    metric: "Zero downtime",
   },
   {
-    client: "Atlas Health",
+    client: "Alexandria Retail",
+    industry: "Retail",
+    headline: "E-commerce platform with digital marketing integration.",
+    metric: "+150% sales",
+  },
+  {
+    client: "Giza Manufacturing",
+    industry: "Manufacturing",
+    headline: "Network security and data backup implementation.",
+    metric: "100% secure",
+  },
+  {
+    client: "Mansoura Education",
+    industry: "Education",
+    headline: "Custom web application and mobile app development.",
+    metric: "5000+ users",
+  },
+  {
+    client: "Aswan Healthcare",
     industry: "Healthcare",
-    headline: "AI triage assistant deployed across 200 clinics.",
-    metric: "3.1× throughput",
+    headline: "Patient management system with HIPAA compliance.",
+    metric: "24/7 access",
   },
   {
-    client: "Kairos AI",
-    industry: "AI infrastructure",
-    headline: "Multi-region inference platform handling 1.2B requests/mo.",
-    metric: "99.997% uptime",
-  },
-  {
-    client: "Helios Energy",
-    industry: "Climate",
-    headline: "Grid forecasting platform powering 8 utilities.",
-    metric: "+18% accuracy",
-  },
-  {
-    client: "Obsidian Bank",
-    industry: "Fintech",
-    headline: "Zero-trust core banking modernization in 11 months.",
-    metric: "SOC 2 + PCI",
-  },
-  {
-    client: "Vantage Retail",
-    industry: "Commerce",
-    headline: "Personalization engine across 38M monthly shoppers.",
-    metric: "+27% AOV",
+    client: "Luxor Tourism",
+    industry: "Tourism",
+    headline: "Digital marketing campaign and media production.",
+    metric: "+200% bookings",
   },
 ];
 
@@ -65,9 +65,9 @@ function CaseStudiesPage() {
     <>
       <PageHeader
         eyebrow="Case Studies"
-        title="Selected"
-        highlight="work."
-        subtitle="A small sample of the systems we've shipped with teams across logistics, healthcare, fintech, and climate."
+        title="Success"
+        highlight="Stories."
+        subtitle="How Procode Egypt has helped SMEs and NGOs across Egypt with Hassle-Free Technology solutions."
       />
       <section className="container-px mx-auto max-w-7xl pb-32">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -79,11 +79,17 @@ function CaseStudiesPage() {
             >
               <div
                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                style={{ background: "radial-gradient(400px circle at 50% 0%, oklch(0.55 0.2 5 / 0.18), transparent 60%)" }}
+                style={{
+                  background:
+                    "radial-gradient(400px circle at 50% 0%, oklch(0.55 0.2 5 / 0.18), transparent 60%)",
+                }}
               />
               <div className="relative flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
                 <span>{c.industry}</span>
-                <ArrowUpRight size={14} className="text-primary-glow transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight
+                  size={14}
+                  className="text-primary-glow transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
               </div>
               <div className="relative mt-6 font-display text-2xl font-semibold leading-tight">
                 {c.headline}

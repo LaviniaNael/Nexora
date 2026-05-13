@@ -80,4 +80,3 @@ export function splitText(target: HTMLElement, type: SplitType = "chars"): Split
     },
   };
 }
-

@@ -23,9 +23,7 @@ export function PageHeader({
         <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight sm:text-6xl">
           {title} {highlight && <span className="text-gradient-magenta">{highlight}</span>}
         </h1>
-        {subtitle && (
-          <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{subtitle}</p>
-        )}
+        {subtitle && <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{subtitle}</p>}
       </div>
     </section>
   );

@@ -7,16 +7,16 @@ import { CTA } from "@/components/CTA";
 export const Route = createFileRoute("/solutions")({
   head: () => ({
     meta: [
-      { title: "Solutions — Nexora" },
+      { title: "Solutions — Procode Egypt" },
       {
         name: "description",
         content:
-          "Enterprise platforms, AI operations, cloud control planes, and zero-trust security solutions.",
+          "Digital Marketing, Media Production, Data Backup, and comprehensive technology solutions for Egyptian businesses.",
       },
-      { property: "og:title", content: "Solutions — Nexora" },
+      { property: "og:title", content: "Solutions — Procode Egypt" },
       {
         property: "og:description",
-        content: "One control plane for every system you ship.",
+        content: "Complete technology solutions for SMEs and NGOs.",
       },
     ],
   }),
@@ -28,9 +28,9 @@ function SolutionsPage() {
     <>
       <PageHeader
         eyebrow="Solutions"
-        title="Platforms for"
-        highlight="every layer."
-        subtitle="A unified control plane covering AI operations, cloud delivery, and continuous security — built for the way modern teams ship."
+        title="Complete"
+        highlight="Digital Ecosystem."
+        subtitle="From digital marketing to media production and data backup, Procode provides end-to-end solutions for your business growth."
       />
       <Showcase />
       <Stats />

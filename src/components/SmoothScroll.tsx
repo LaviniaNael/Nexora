@@ -1,9 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
+import { useRouterState } from "@tanstack/react-router";
 
 export function SmoothScroll() {
+  const lenisRef = useRef<Lenis>(null);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
   useEffect(() => {
     registerGsapPlugins();
     if (prefersReducedMotion()) return;
@@ -13,6 +17,7 @@ export function SmoothScroll() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+    lenisRef.current = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
     const raf = (time: number) => {
@@ -24,8 +29,20 @@ export function SmoothScroll() {
     return () => {
       gsap.ticker.remove(raf);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    if (lenisRef.current) {
+      // Force scroll to top instantly on route change
+      lenisRef.current.scrollTo(0, { immediate: true });
+      // Wait for next tick to let DOM update and scroll to settle
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }
+  }, [pathname]);
 
   return null;
 }

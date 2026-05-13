@@ -6,16 +6,16 @@ import { Mail, MapPin, Send } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Nexora" },
+      { title: "Contact — Procode Egypt" },
       {
         name: "description",
         content:
-          "Tell us about your project. We typically reply within one business day.",
+          "Contact Procode Egypt for Hassle-Free Technology services. We typically reply within one business day.",
       },
-      { property: "og:title", content: "Contact — Nexora" },
+      { property: "og:title", content: "Contact — Procode Egypt" },
       {
         property: "og:description",
-        content: "Start a project with Nexora. We reply within one business day.",
+        content: "Start a project with Procode Egypt. We reply within one business day.",
       },
     ],
   }),
@@ -28,9 +28,9 @@ function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Tell us where"
-        highlight="you're headed."
-        subtitle="We'll reply within one business day with next steps and a discovery proposal."
+        title="Get in"
+        highlight="touch."
+        subtitle="We'll reply within one business day to discuss your Hassle-Free Technology needs."
       />
       <section className="container-px mx-auto max-w-6xl pb-32">
         <div className="grid gap-10 lg:grid-cols-5">
@@ -38,16 +38,18 @@ function ContactPage() {
             <div className="rounded-2xl border border-white/5 bg-gradient-to-b from-surface to-surface-elevated/40 p-6">
               <Mail className="text-primary-glow" size={18} />
               <h3 className="mt-3 font-display text-lg font-semibold">Email</h3>
-              <p className="mt-1 text-sm text-muted-foreground">hello@nexora.systems</p>
+              <p className="mt-1 text-sm text-muted-foreground">info@procode.eg</p>
             </div>
             <div className="rounded-2xl border border-white/5 bg-gradient-to-b from-surface to-surface-elevated/40 p-6">
               <MapPin className="text-primary-glow" size={18} />
-              <h3 className="mt-3 font-display text-lg font-semibold">Studios</h3>
-              <p className="mt-1 text-sm text-muted-foreground">London · New York · Singapore</p>
+              <h3 className="mt-3 font-display text-lg font-semibold">Location</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                17 Cleopatra St., Korba, Heliopolis, Cairo, Egypt
+              </p>
             </div>
             <div className="rounded-2xl border border-primary/30 bg-primary/10 p-6">
-              <p className="font-display text-sm font-semibold text-primary-glow">Response time</p>
-              <p className="mt-1 text-sm text-foreground/85">≤ 1 business day</p>
+              <p className="font-display text-sm font-semibold text-primary-glow">Phone</p>
+              <p className="mt-1 text-sm text-foreground/85">01055221130</p>
             </div>
           </div>
 
@@ -64,7 +66,9 @@ function ContactPage() {
             </div>
             <Field label="Company" type="text" name="company" placeholder="Acme Inc." />
             <div>
-              <label className="text-xs uppercase tracking-widest text-muted-foreground">Project</label>
+              <label className="text-xs uppercase tracking-widest text-muted-foreground">
+                Project
+              </label>
               <textarea
                 rows={5}
                 placeholder="What are you building, and what does success look like?"
@@ -76,7 +80,9 @@ function ContactPage() {
               className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-glow px-6 py-3 text-sm font-medium text-white shadow-glow transition-transform hover:scale-[1.01]"
             >
               {sent ? "Message received — we'll be in touch" : "Send message"}
-              {!sent && <Send size={15} className="transition-transform group-hover:translate-x-0.5" />}
+              {!sent && (
+                <Send size={15} className="transition-transform group-hover:translate-x-0.5" />
+              )}
             </button>
           </form>
         </div>
@@ -88,7 +94,9 @@ function ContactPage() {
 function Field(props: { label: string; type: string; name: string; placeholder: string }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-muted-foreground">{props.label}</label>
+      <label className="text-xs uppercase tracking-widest text-muted-foreground">
+        {props.label}
+      </label>
       <input
         {...props}
         className="mt-2 w-full rounded-xl border border-white/10 bg-black/30 p-3 text-sm outline-none placeholder:text-muted-foreground/70 focus:border-primary/40"

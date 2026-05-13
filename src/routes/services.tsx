@@ -6,16 +6,16 @@ import { CTA } from "@/components/CTA";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Nexora" },
+      { title: "Services — Procode Egypt" },
       {
         name: "description",
         content:
-          "Custom software, AI integration, cloud infrastructure, cybersecurity, mobile, and UI/UX engineering services.",
+          "IT Management, Web Development, Mobile Apps, Digital Marketing, Social Media Management, and Media Production services for SMEs and NGOs.",
       },
-      { property: "og:title", content: "Services — Nexora" },
+      { property: "og:title", content: "Services — Procode Egypt" },
       {
         property: "og:description",
-        content: "Six engineering disciplines, one team building elite systems.",
+        content: "Hassle-Free Technology services for Egyptian businesses.",
       },
     ],
   }),
@@ -27,9 +27,9 @@ function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="Engineered for"
-        highlight="serious systems."
-        subtitle="From greenfield platforms to mission-critical modernization, Nexora delivers across the full software lifecycle."
+        title="Hassle-Free"
+        highlight="Technology Solutions."
+        subtitle="From IT infrastructure to digital marketing, Procode handles all the technicalities so you can focus on your business passion."
       />
       <ServicesGrid />
       <CTA />

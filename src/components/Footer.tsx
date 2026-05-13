@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+// import { Link } from "@tanstack/react-router";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
@@ -13,13 +13,11 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-2">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-primary to-primary-glow shadow-glow">
-                <span className="font-display text-sm font-bold text-white">N</span>
-              </span>
-              <span className="font-display text-base font-semibold">Nexora.</span>
+              <img src="/logo.webp" alt="Procode Logo" className="h-8 w-auto" />
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-              Engineering intelligent digital systems for the next decade of enterprise software.
+              Hassle-Free Technology for SMEs and NGOs. We bridge the gap between your business
+              passion and technical complexities.
             </p>
             <form
               className="mt-6 flex max-w-sm items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1 pl-4 focus-within:border-primary/40"
@@ -51,24 +49,24 @@ export function Footer() {
             <FooterCol
               title="Services"
               items={[
-                { to: "/services", label: "Custom Software" },
-                { to: "/services", label: "AI Solutions" },
-                { to: "/services", label: "Cloud Systems" },
+                { to: "/services", label: "IT Management" },
+                { to: "/services", label: "Web Development" },
+                { to: "/services", label: "Mobile Apps" },
               ]}
             />
             <FooterCol
               title="Solutions"
               items={[
-                { to: "/solutions", label: "Enterprise" },
-                { to: "/solutions", label: "Cybersecurity" },
-                { to: "/solutions", label: "Digital Transformation" },
+                { to: "/solutions", label: "Digital Marketing" },
+                { to: "/solutions", label: "Media Production" },
+                { to: "/solutions", label: "Data Backup" },
               ]}
             />
           </div>
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-white/5 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Nexora Systems. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Procode Egypt. All rights reserved.</p>
           <div className="flex items-center gap-3">
             {[Github, Linkedin, Twitter].map((Icon, i) => (
               <a
@@ -92,7 +90,10 @@ function FooterCol({
   items,
 }: {
   title: string;
-  items: { to: "/about" | "/case-studies" | "/contact" | "/services" | "/solutions"; label: string }[];
+  items: {
+    to: "/about" | "/case-studies" | "/contact" | "/services" | "/solutions";
+    label: string;
+  }[];
 }) {
   return (
     <div>
@@ -102,9 +103,9 @@ function FooterCol({
       <ul className="mt-4 space-y-2 text-sm">
         {items.map((it, i) => (
           <li key={i}>
-            <Link to={it.to} className="text-foreground/80 transition-colors hover:text-foreground">
+            <a href={it.to} className="text-foreground/80 transition-colors hover:text-foreground">
               {it.label}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>

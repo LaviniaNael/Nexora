@@ -1,7 +1,15 @@
 export function LogoMarquee() {
   const logos = [
-    "ATLAS", "NORTHWIND", "KAIROS", "HELIOS", "OBSIDIAN",
-    "VANTAGE", "AURORA", "QUANTUM", "MERIDIAN", "STRATA",
+    "ATLAS",
+    "NORTHWIND",
+    "KAIROS",
+    "HELIOS",
+    "OBSIDIAN",
+    "VANTAGE",
+    "AURORA",
+    "QUANTUM",
+    "MERIDIAN",
+    "STRATA",
   ];
   const row = [...logos, ...logos];
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link } from "@tanstack/react-router";
+// import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { HeroBackdrop } from "./HeroBackdrop";
 import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
@@ -93,20 +93,20 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-muted-foreground backdrop-blur"
           >
             <Sparkles size={12} className="text-primary-glow" />
-            <span>Now shipping AI-native enterprise platforms</span>
+            <span>Hassle-Free Technology for Egyptian Businesses</span>
           </div>
 
           <h1 className="mt-6 font-display text-[clamp(2.6rem,6vw,5rem)] font-semibold leading-[0.98] tracking-tight">
             <span className="block">
-              <span data-hero-line className="block text-gradient">Engineering</span>
+              <span data-hero-line className="block text-gradient">Hassle-Free</span>
             </span>
             <span className="block">
               <span data-hero-line className="block ">
-                <span className="text-gradient-magenta">Intelligent</span> Digital
+                <span className="text-gradient-magenta">Technology</span> for
               </span>
             </span>
             <span className="block">
-              <span data-hero-line className="block text-gradient">Systems.</span>
+              <span data-hero-line className="block text-gradient">Your Business.</span>
             </span>
           </h1>
 
@@ -114,34 +114,34 @@ export function Hero() {
             data-hero-sub
             className="mt-6 max-w-xl text-balance text-base text-muted-foreground sm:text-lg"
           >
-            Nexora builds custom software, AI platforms, and cloud infrastructure for
-            companies engineering the next decade of work.
+            Procode provides unlimited IT support, web development, and digital marketing
+            for SMEs and NGOs across Egypt. Focus on your passion, we'll handle the technicalities.
           </p>
 
           <div className="mt-8 flex flex-col justify-center items-center gap-3 sm:flex-row">
-            <Link
+            <a
               data-hero-cta
-              to="/contact"
+              href="/contact"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary-glow px-6 py-3 text-sm font-medium text-white shadow-glow transition-transform hover:scale-[1.02]"
             >
               <span className="relative z-10">Start a project</span>
               <ArrowRight size={16} className="relative z-10 transition-transform group-hover:translate-x-0.5" />
               <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent)] transition-transform duration-700 group-hover:translate-x-full" />
-            </Link>
-            <Link
+            </a>
+            <a
               data-hero-cta
-              to="/case-studies"
+              href="/case-studies"
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
             >
               View case studies
-            </Link>
+            </a>
           </div>
 
           <div className="mt-12 grid w-full max-w-2xl grid-cols-3 gap-4 text-left">
             {[
-              { k: "240+", v: "Systems shipped" },
-              { k: "99.99%", v: "Avg. uptime" },
-              { k: "$1.4B", v: "Client revenue impacted" },
+              { k: "500+", v: "Clients served" },
+              { k: "24/7", v: "Support available" },
+              { k: "15+", v: "Years experience" },
             ].map((s) => (
               <div
                 key={s.k}
@@ -170,7 +170,7 @@ export function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                 <span className="h-2.5 w-2.5 rounded-full bg-primary/70 shadow-[0_0_10px] shadow-primary" />
               </div>
-              <div className="font-mono text-[10px] text-muted-foreground">nexora.console / production</div>
+              <div className="font-mono text-[10px] text-muted-foreground">procode.eg / monitoring</div>
               <div className="font-mono text-[10px] text-primary-glow animate-glow-pulse">● live</div>
             </div>
             <div className="grid gap-4 p-5 sm:grid-cols-3">

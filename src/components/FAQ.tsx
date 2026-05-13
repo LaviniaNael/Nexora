@@ -61,9 +61,7 @@ export function FAQ() {
                     paddingBottom: isOpen ? "1.25rem" : "0",
                   }}
                 >
-                  <div className="min-h-0 text-sm leading-relaxed text-muted-foreground">
-                    {f.a}
-                  </div>
+                  <div className="min-h-0 text-sm leading-relaxed text-muted-foreground">{f.a}</div>
                 </div>
               </div>
             );

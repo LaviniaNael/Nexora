@@ -6,6 +6,7 @@ import {
   HeadContent,
   Scripts,
   Link,
+  ScrollRestoration,
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
@@ -46,7 +47,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="rounded-full bg-gradient-to-r from-primary to-primary-glow px-5 py-2.5 text-sm font-medium text-white shadow-glow"
           >
             Try again
@@ -69,17 +73,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0610" },
-      { title: "Nexora — Engineering Intelligent Digital Systems" },
+      { title: "Procode Egypt — Hassle-Free Technology" },
       {
         name: "description",
         content:
-          "Nexora builds custom software, AI platforms, and cloud infrastructure for companies engineering the next decade of work.",
+          "Procode Egypt provides Hassle-Free Technology for SMEs and NGOs, including IT Management, Web Development, Mobile Apps, Digital Marketing, and Media Production.",
       },
-      { property: "og:title", content: "Nexora — Engineering Intelligent Digital Systems" },
+      { property: "og:title", content: "Procode Egypt — Hassle-Free Technology" },
       {
         property: "og:description",
         content:
-          "Custom software, AI solutions, cloud systems, enterprise platforms, cybersecurity, and digital transformation.",
+          "IT Management, Web Development, Mobile Apps, Digital Marketing, Social Media Management, and Media Production for Egyptian businesses.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -119,6 +123,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SmoothScroll />
+      <ScrollRestoration />
       <Navbar />
       <main className="min-h-screen">
         <PageTransition />

@@ -7,14 +7,24 @@ const tiers = [
     price: "$24k",
     cadence: "/ engagement",
     desc: "For focused MVPs and product validations.",
-    features: ["Discovery & architecture", "6-week build sprint", "Production deploy", "30-day support"],
+    features: [
+      "Discovery & architecture",
+      "6-week build sprint",
+      "Production deploy",
+      "30-day support",
+    ],
   },
   {
     name: "Scale",
     price: "$78k",
     cadence: "/ quarter",
     desc: "Dedicated squad, continuous shipping rhythm.",
-    features: ["Cross-functional team", "AI & cloud integration", "SLA & on-call", "Quarterly architecture review"],
+    features: [
+      "Cross-functional team",
+      "AI & cloud integration",
+      "SLA & on-call",
+      "Quarterly architecture review",
+    ],
     featured: true,
   },
   {
@@ -55,9 +65,7 @@ export function Pricing() {
               <h3 className="font-display text-lg font-semibold">{t.name}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{t.desc}</p>
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="font-display text-4xl font-semibold text-gradient">
-                  {t.price}
-                </span>
+                <span className="font-display text-4xl font-semibold text-gradient">{t.price}</span>
                 <span className="text-sm text-muted-foreground">{t.cadence}</span>
               </div>
               <ul className="mt-6 space-y-3 text-sm">
