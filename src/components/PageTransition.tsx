@@ -3,12 +3,10 @@ import { Outlet, useRouterState } from "@tanstack/react-router";
 import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
 
 export function PageTransition() {
-  const overlay = useRef<HTMLDivElement>(null);
   const frame = useRef<HTMLDivElement>(null);
-  const skipOverlayOnce = useRef(true);
   const skipFrameOnce = useRef(true);
 
-  // `location.search` is parsed object form — never coerce it to string (SSR can throw).
+  // Use the full URL as a key so the component remounts on route change
   const key = useRouterState({
     select: (s) => s.location.href,
   });
@@ -19,61 +17,40 @@ export function PageTransition() {
     registerGsapPlugins();
     if (reduce) return;
 
-    if (skipOverlayOnce.current) {
-      skipOverlayOnce.current = false;
-      return;
-    }
-
-    const o = overlay.current;
-    if (!o) return;
-
-    // wipe up, then down – covers the content swap; fully hide so no fixed layer lingers
-    const tl = gsap.timeline({ defaults: { ease: "power4.inOut" } });
-    tl.set(o, { yPercent: 110, autoAlpha: 1, visibility: "visible" });
-    tl.to(o, { yPercent: 0, duration: 0.34 });
-    tl.to(o, {
-      yPercent: -110,
-      duration: 0.42,
-      delay: 0.04,
-      autoAlpha: 0,
-      onComplete: () => {
-        gsap.set(o, { visibility: "hidden" });
-      },
-    });
-    return () => {
-      tl.kill();
-    };
-  }, [key, reduce]);
-
-  useEffect(() => {
-    if (reduce) return;
     const f = frame.current;
     if (!f) return;
 
+    // Skip animation on the initial page load to avoid layout flashes
     if (skipFrameOnce.current) {
       skipFrameOnce.current = false;
       return;
     }
+
+    // Kill any active animations
+    gsap.killTweensOf(f);
+
+    // Clean, modern fade in, slide up, and blur reveal
     gsap.fromTo(
       f,
-      { y: 8, autoAlpha: 0.94 },
-      { y: 0, autoAlpha: 1, duration: 0.42, ease: "power3.out" },
+      { y: 24, opacity: 0, filter: "blur(8px)" },
+      { 
+        y: 0, 
+        opacity: 1, 
+        filter: "blur(0px)", 
+        duration: 0.6, 
+        ease: "power3.out",
+        clearProps: "transform,filter" // Crucial: clean up so we don't break position:fixed pinning in children
+      }
     );
   }, [key, reduce]);
 
   return (
-    <div className="relative">
-      <div
-        ref={overlay}
-        aria-hidden="true"
-        className="pointer-events-none invisible fixed inset-0 z-[60] translate-y-full opacity-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(10,6,16,0) 0%, rgba(10,6,16,0.92) 35%, rgba(10,6,16,1) 50%, rgba(10,6,16,0.92) 65%, rgba(10,6,16,0) 100%)",
-        }}
-      />
-
-      <div ref={frame} key={key}>
+    <div className="relative min-h-screen">
+      {/* 
+        By passing `key` here, React destroys the old DOM and creates a fresh one 
+        every time the route changes. This makes the animation hook fire reliably.
+      */}
+      <div ref={frame} key={key} className="min-h-screen">
         <Outlet />
       </div>
     </div>

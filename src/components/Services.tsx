@@ -48,8 +48,8 @@ const services = [
   },
   {
     icon: Cloud,
-    title: "Media Production",
-    desc: "Visual storytelling through film and sound, giving your brand an engaging voice through multimedia communication.",
+    title: "Managed Cloud Services",
+    desc: "Scale your operations with secure cloud hosting, automated disaster recovery, and 24/7 server monitoring.",
   },
 ];
 

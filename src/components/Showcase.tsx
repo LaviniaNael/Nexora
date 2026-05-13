@@ -3,22 +3,22 @@ import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
 
 const panels = [
   {
-    tag: "AI Operations",
-    title: "Observe every model in production.",
-    desc: "Real-time metrics, drift detection, and cost attribution across every inference, every region.",
-    bullets: ["Drift & quality monitors", "Multi-tenant cost tracking", "Auto-rollback on regression"],
+    tag: "Web & Marketing",
+    title: "Your brand, everywhere it matters.",
+    desc: "From premium custom websites and robust e-commerce platforms to data-driven SEO and social media campaigns.",
+    bullets: ["Custom Web Development", "SEO & Digital Marketing", "Social Media Management"],
   },
   {
-    tag: "Cloud Platform",
-    title: "Ship to anywhere. Operate from one place.",
-    desc: "Unified control plane for multi-cloud workloads with policy as code and zero-downtime delivery.",
-    bullets: ["IaC blueprints", "Progressive delivery", "FinOps dashboards"],
+    tag: "Mobile Solutions",
+    title: "High-performance apps for iOS & Android.",
+    desc: "Engage your users on the go with fluid, native-feeling mobile applications designed for speed and reliability.",
+    bullets: ["Cross-platform development", "UI/UX App Design", "App Store Optimization"],
   },
   {
-    tag: "Security",
-    title: "Zero-trust by default, by design.",
-    desc: "Continuous compliance, threat modeling, and runtime protection baked into every release.",
-    bullets: ["SOC 2 / ISO 27001", "Runtime threat detection", "Secrets governance"],
+    tag: "IT & Infrastructure",
+    title: "Secure, reliable, and always on.",
+    desc: "Comprehensive IT support, system monitoring, and zero-downtime maintenance so you can focus on your business.",
+    bullets: ["Monthly on-site maintenance", "Unlimited technical assistance", "Security & Data Protection"],
   },
 ];
 
@@ -82,10 +82,10 @@ export function Showcase() {
   return (
     <section ref={root} className="relative pt-22 h-screen">
       <div className="container-px mx-auto max-w-7xl">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center relative z-10">
           <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">Platform</p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            One control plane for <span className="text-gradient-magenta">every system</span> you ship.
+            An end-to-end partner for your <span className="text-gradient-magenta">digital transformation</span>.
           </h2>
         </div>
 
@@ -135,53 +135,103 @@ export function Showcase() {
 }
 
 function MockPanel({ index }: { index: number }) {
-  return (
-    <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-5 shadow-elegant">
-      <div className="mb-4 flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-        <span>nexora / panel-{index + 1}</span>
-        <span className="text-primary-glow">● synced</span>
+  if (index === 0) {
+    // Web & Marketing Mockup
+    return (
+      <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-5 shadow-elegant h-full flex flex-col aspect-[4/3] lg:aspect-auto min-h-[300px]">
+        <div className="flex gap-1.5 mb-6">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+        </div>
+        <div className="flex-1 rounded-xl border border-white/5 bg-black/40 p-5 relative overflow-hidden flex flex-col">
+          {/* Fake Web layout */}
+          <div className="w-1/2 h-5 rounded-md bg-primary/20 mb-6"></div>
+          <div className="w-full h-2.5 rounded bg-white/10 mb-3"></div>
+          <div className="w-5/6 h-2.5 rounded bg-white/10 mb-8"></div>
+          
+          {/* Fake Analytics Chart */}
+          <div className="flex items-end gap-2.5 h-24 mt-auto">
+            {[30, 45, 25, 60, 85, 50, 95].map((h, i) => (
+              <div key={i} className="flex-1 bg-gradient-to-t from-primary/80 to-primary-glow rounded-t-sm relative group">
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      {index === 0 && (
-        <div className="grid grid-cols-6 items-end gap-1.5 h-44">
-          {Array.from({ length: 24 }).map((_, i) => (
-            <div
-              key={i}
-              className="rounded-sm bg-gradient-to-t from-primary to-primary-glow/80"
-              style={{ height: `${15 + Math.abs(Math.sin(i * 0.7)) * 80}%` }}
-            />
-          ))}
-        </div>
-      )}
-      {index === 1 && (
-        <div className="space-y-2 font-mono text-[11px] text-muted-foreground">
-          {[
-            ["us-east-1", "ok", "120ms"],
-            ["eu-west-2", "ok", "98ms"],
-            ["ap-south-1", "ok", "142ms"],
-            ["sa-east-1", "deploying", "—"],
-            ["af-south-1", "ok", "188ms"],
-          ].map(([r, s, l]) => (
-            <div key={r} className="flex items-center justify-between rounded-md bg-black/30 px-3 py-2">
-              <span className="text-foreground/80">{r}</span>
-              <span className={s === "ok" ? "text-primary-glow" : "text-yellow-300/80"}>{s}</span>
-              <span>{l}</span>
-            </div>
-          ))}
-        </div>
-      )}
-      {index === 2 && (
-        <div className="grid grid-cols-2 gap-3">
-          {["SOC 2", "ISO 27001", "GDPR", "HIPAA"].map((c) => (
-            <div key={c} className="rounded-xl border border-white/5 bg-black/30 p-4">
-              <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Compliant</div>
-              <div className="mt-1 font-display text-lg font-semibold">{c}</div>
-              <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/5">
-                <div className="h-full w-[92%] bg-gradient-to-r from-primary to-primary-glow" />
+    );
+  }
+
+  if (index === 1) {
+    // Mobile Solutions Mockup
+    return (
+      <div className="relative flex justify-center items-center h-full min-h-[300px]">
+        {/* Floating wrapper */}
+        <div className="animate-float-slow w-full h-full flex justify-center items-center">
+          <div className="w-[210px] h-[410px] glow-ring relative overflow-hidden rounded-[2.5rem] border-[6px] border-surface-elevated bg-black shadow-elegant rotate-[-15deg] z-1">
+          {/* Notch */}
+          <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-10">
+            <div className="w-24 h-5 bg-surface-elevated rounded-b-2xl"></div>
+          </div>
+          {/* Screen Content */}
+          <div className="pt-12 px-4 pb-4 flex flex-col gap-4 h-full relative z-0">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-primary-glow"></div>
+              <div className="flex flex-col gap-1.5">
+                <div className="w-20 h-2 bg-white/20 rounded"></div>
+                <div className="w-12 h-2 bg-white/10 rounded"></div>
               </div>
             </div>
-          ))}
+            <div className="w-full flex-1 rounded-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/20 p-3">
+               <div className="w-1/2 h-2 bg-primary-glow/50 rounded mb-2"></div>
+               <div className="w-3/4 h-2 bg-primary-glow/30 rounded"></div>
+            </div>
+            <div className="grid grid-cols-2 gap-3 h-28">
+              <div className="rounded-xl bg-white/5 p-3 flex flex-col justify-end">
+                <div className="w-8 h-8 rounded-full bg-white/10 mb-2"></div>
+                <div className="w-12 h-2 bg-white/20 rounded"></div>
+              </div>
+              <div className="rounded-xl bg-white/5 p-3 flex flex-col justify-end">
+                <div className="w-8 h-8 rounded-full bg-white/10 mb-2"></div>
+                <div className="w-12 h-2 bg-white/20 rounded"></div>
+              </div>
+            </div>
+          </div>
         </div>
-      )}
+        </div>
+      </div>
+    );
+  }
+
+  // IT & Infrastructure Mockup
+  return (
+    <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-6 shadow-elegant h-full flex flex-col justify-center gap-4 min-h-[300px]">
+      <div className="mb-2 flex items-center justify-between text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+        <span>Network Status</span>
+        <span className="text-green-400 flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+          Operational
+        </span>
+      </div>
+      {[1, 2, 3].map((rack) => (
+        <div key={rack} className="flex items-center gap-4 rounded-xl border border-white/5 bg-black/40 p-4">
+          <div className="flex flex-col gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-primary-glow shadow-[0_0_8px_var(--color-primary-glow)]"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-primary-glow/40"></div>
+          </div>
+          <div className="flex-1 space-y-3">
+            <div className="h-1.5 w-1/3 bg-white/20 rounded-full"></div>
+            <div className="flex gap-2">
+              <div className="h-1.5 w-16 bg-primary/60 rounded-full"></div>
+              <div className="h-1.5 w-10 bg-primary/30 rounded-full"></div>
+              <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-primary to-primary-glow w-[85%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
