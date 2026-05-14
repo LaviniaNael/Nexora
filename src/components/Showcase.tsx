@@ -151,13 +151,13 @@ function MockPanel({ index }: { index: number }) {
           <div className="w-5/6 h-2.5 rounded bg-white/10 mb-8"></div>
           
           {/* Fake Analytics Chart */}
-          <div className="flex items-end gap-2.5 h-24 mt-auto">
+          {/* <div className="flex items-end gap-2.5 h-10 mt-auto">
             {[30, 45, 25, 60, 85, 50, 95].map((h, i) => (
               <div key={i} className="flex-1 bg-gradient-to-t from-primary/80 to-primary-glow rounded-t-sm relative group">
                 <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     );
@@ -169,7 +169,7 @@ function MockPanel({ index }: { index: number }) {
       <div className="relative flex justify-center items-center h-full min-h-[300px]">
         {/* Floating wrapper */}
         <div className="animate-float-slow w-full h-full flex justify-center items-center">
-          <div className="w-[210px] h-[410px] glow-ring relative overflow-hidden rounded-[2.5rem] border-[6px] border-surface-elevated bg-black shadow-elegant rotate-[-15deg] z-1">
+          <div className="w-[200px] h-[380px] glow-ring relative overflow-hidden rounded-[2.5rem] border-[6px] border-surface-elevated bg-black shadow-elegant rotate-[-15deg] z-1">
           {/* Notch */}
           <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-10">
             <div className="w-24 h-5 bg-surface-elevated rounded-b-2xl"></div>
@@ -206,7 +206,7 @@ function MockPanel({ index }: { index: number }) {
 
   // IT & Infrastructure Mockup
   return (
-    <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-6 shadow-elegant h-full flex flex-col justify-center gap-4 min-h-[300px]">
+    <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-6 shadow-elegant h-full flex flex-col justify-center gap-4 min-h-[200px]">
       <div className="mb-2 flex items-center justify-between text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
         <span>Network Status</span>
         <span className="text-green-400 flex items-center gap-1.5">
@@ -214,7 +214,7 @@ function MockPanel({ index }: { index: number }) {
           Operational
         </span>
       </div>
-      {[1, 2, 3].map((rack) => (
+      {[1, 2].map((rack) => (
         <div key={rack} className="flex items-center gap-4 rounded-xl border border-white/5 bg-black/40 p-4">
           <div className="flex flex-col gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-primary-glow shadow-[0_0_8px_var(--color-primary-glow)]"></div>
