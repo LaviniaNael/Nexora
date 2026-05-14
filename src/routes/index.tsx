@@ -34,7 +34,7 @@ function Index() {
       <Stats />
       <Process />
       <Testimonials />
-      <Pricing />
+      {/* <Pricing /> */}
       <FAQ />
       <CTA />
     </>

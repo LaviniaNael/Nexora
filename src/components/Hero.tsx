@@ -77,7 +77,7 @@ export function Hero() {
   return (
     <section
       ref={root}
-      className="relative isolate overflow-hidden pt-32 sm:pt-40"
+      className="relative isolate overflow-hidden pt-16 sm:pt-24"
     >
       <HeroBackdrop />
       <div className="absolute inset-0 -z-10 bg-grid mask-fade-b opacity-60" />
@@ -96,45 +96,60 @@ export function Hero() {
             <span>Hassle-Free Technology for Egyptian Businesses</span>
           </div>
 
-          <h1 className="mt-6 font-display text-[clamp(2.6rem,6vw,5rem)] font-semibold leading-[0.98] tracking-tight">
-            <span className="block">
-              <span data-hero-line className="block text-gradient">Hassle-Free</span>
+          <h1 className="mt-6 font-display text-[clamp(2.6rem,6vw,3.6rem)] font-semibold leading-[0.98] tracking-tight">
+            <span>
+              <span data-hero-line className="text-gradient">Hassle-Free</span>
             </span>
-            <span className="block">
-              <span data-hero-line className="block ">
-                <span className="text-gradient-magenta">Technology</span> for
+            <span>
+              <span data-hero-line >
+                <span className="text-gradient-magenta">Technology</span>
               </span>
             </span>
             <span className="block">
-              <span data-hero-line className="block text-gradient">Your Business.</span>
+              <span data-hero-line className="block text-gradient"> for Your Business.</span>
             </span>
           </h1>
 
           <p
             data-hero-sub
-            className="mt-6 max-w-xl text-balance text-base text-muted-foreground sm:text-lg"
+            className="mt-6 max-w-xl text-balance text-base text-muted-foreground"
           >
             Procode provides unlimited IT support, web development, and digital marketing
             for SMEs and NGOs across Egypt. Focus on your passion, we'll handle the technicalities.
           </p>
 
-          <div className="mt-8 flex flex-col justify-center items-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+
             <a
-              data-hero-cta
               href="/contact"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary-glow px-6 py-3 text-sm font-medium text-white shadow-glow transition-transform hover:scale-[1.02]"
+              className="group relative inline-flex h-12 items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary-glow px-6 text-sm font-medium text-white shadow-glow transition-transform"
             >
               <span className="relative z-10">Start a project</span>
-              <ArrowRight size={16} className="relative z-10 transition-transform group-hover:translate-x-0.5" />
-              <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent)] transition-transform duration-700 group-hover:translate-x-full" />
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="relative z-10 transition-transform group-hover:translate-x-0.5"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
             </a>
+
             <a
-              data-hero-cta
               href="/case-studies"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
+              className="group relative inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-6 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
             >
               View case studies
             </a>
+
           </div>
 
           <div className="mt-12 grid w-full max-w-2xl grid-cols-3 gap-4 text-left">
