@@ -1,5 +1,6 @@
 // import { Link } from "@tanstack/react-router";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Linkedin } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -9,7 +10,7 @@ export function Footer() {
         className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[60rem] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
         style={{ background: "var(--gradient-radial)" }}
       />
-      <div className="container-px relative mx-auto max-w-7xl py-20">
+      <div className="container-px relative mx-auto max-w-7xl py-10">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-2">
@@ -19,7 +20,7 @@ export function Footer() {
               Hassle-Free Technology for SMEs and NGOs. We bridge the gap between your business
               passion and technical complexities.
             </p>
-            <form
+            {/* <form
               className="mt-6 flex max-w-sm items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1 pl-4 focus-within:border-primary/40"
               onSubmit={(e) => e.preventDefault()}
             >
@@ -34,7 +35,7 @@ export function Footer() {
               >
                 Subscribe
               </button>
-            </form>
+            </form> */}
           </div>
 
           <div className="grid grid-cols-2 gap-8 md:col-span-7 md:grid-cols-3">
@@ -42,7 +43,7 @@ export function Footer() {
               title="Company"
               items={[
                 { to: "/about", label: "About" },
-                { to: "/case-studies", label: "Case Studies" },
+                { to: "/solutions", label: "Solutions" },
                 { to: "/contact", label: "Contact" },
               ]}
             />
@@ -54,30 +55,34 @@ export function Footer() {
                 { to: "/services", label: "Mobile Apps" },
               ]}
             />
-            <FooterCol
-              title="Solutions"
-              items={[
-                { to: "/solutions", label: "Digital Marketing" },
-                { to: "/solutions", label: "Media Production" },
-                { to: "/solutions", label: "Data Backup" },
-              ]}
-            />
+            
           </div>
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-white/5 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Procode Egypt. All rights reserved.</p>
           <div className="flex items-center gap-3">
-            {[Github, Linkedin, Twitter].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
+            <a
+                href="https://www.facebook.com/procode.eg" target="_blank"
                 className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
                 aria-label="social"
               >
-                <Icon size={14} />
+                <Facebook size={15} />
               </a>
-            ))}
+              <a
+                href="https://www.linkedin.com/company/procode-eg" target="_blank"
+                className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                aria-label="social"
+              >
+                <Linkedin size={15} />
+              </a>
+              <a
+                href="https://wa.me/201553838208" target="_blank"
+                className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                aria-label="social"
+              >
+                <FaWhatsapp size={15} />
+              </a>
           </div>
         </div>
       </div>

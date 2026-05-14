@@ -44,12 +44,12 @@ function ContactPage() {
               <MapPin className="text-primary-glow" size={18} />
               <h3 className="mt-3 font-display text-lg font-semibold">Location</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                17 Cleopatra St., Korba, Heliopolis, Cairo, Egypt
+                51 Beirut, Almazah, Heliopolis, Cairo Governorate 4460264
               </p>
             </div>
             <div className="rounded-2xl border border-primary/30 bg-primary/10 p-6">
               <p className="font-display text-sm font-semibold text-primary-glow">Phone</p>
-              <p className="mt-1 text-sm text-foreground/85">01055221130</p>
+              <p className="mt-1 text-sm text-foreground/85">01553838208</p>
             </div>
           </div>
 

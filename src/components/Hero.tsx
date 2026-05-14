@@ -93,7 +93,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-muted-foreground backdrop-blur"
           >
             <Sparkles size={12} className="text-primary-glow" />
-            <span>Hassle-Free Technology for Egyptian Businesses</span>
+            <span>Hassle-Free Technology</span>
           </div>
 
           <h1 className="mt-6 font-display text-[clamp(2.6rem,6vw,3.6rem)] font-semibold leading-[0.98] tracking-tight">

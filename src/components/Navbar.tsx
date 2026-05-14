@@ -7,7 +7,7 @@ const links = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/solutions", label: "Solutions" },
-  { to: "/case-studies", label: "Case Studies" },
+  // { to: "/case-studies", label: "Case Studies" },
 ] as const;
 
 export function Navbar() {
