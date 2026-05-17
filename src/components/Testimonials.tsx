@@ -1,7 +1,7 @@
 const items = [
   {
     quote:
-      "Nexora rebuilt our core platform in nine months. Latency dropped 70%, costs by half, and we shipped AI features we'd been planning for years.",
+      "Procode rebuilt our core platform in nine months. Latency dropped 70%, costs by half, and we shipped AI features we'd been planning for years.",
     name: "Elena Marsh",
     role: "CTO, Northwind Logistics",
   },

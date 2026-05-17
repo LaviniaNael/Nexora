@@ -6,16 +6,16 @@ import { Mail, MapPin, Send } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Procode Egypt" },
+      { title: "Contact — Procode" },
       {
         name: "description",
         content:
-          "Contact Procode Egypt for Hassle-Free Technology services. We typically reply within one business day.",
+          "Contact Procode for Hassle-Free Technology services. We typically reply within one business day.",
       },
-      { property: "og:title", content: "Contact — Procode Egypt" },
+      { property: "og:title", content: "Contact — Procode" },
       {
         property: "og:description",
-        content: "Start a project with Procode Egypt. We reply within one business day.",
+        content: "Start a project with Procode. We reply within one business day.",
       },
     ],
   }),

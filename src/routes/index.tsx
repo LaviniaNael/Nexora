@@ -13,11 +13,11 @@ import { CTA } from "@/components/CTA";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Procode Egypt — Hassle-Free Technology" },
+      { title: "Procode — Next-Gen AI & Digital Reality Engineering" },
       {
         name: "description",
         content:
-          "Procode Egypt provides Hassle-Free Technology for SMEs and NGOs, including IT Management, Web Development, Mobile Apps, Digital Marketing, and Media Production.",
+          "Procode is a high-end digital engineering agency specializing in bespoke AI solutions, enterprise web ecosystems, and high-performance mobile applications.",
       },
     ],
   }),

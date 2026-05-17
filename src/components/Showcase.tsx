@@ -3,22 +3,22 @@ import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
 
 const panels = [
   {
-    tag: "Web & Marketing",
-    title: "Your brand, everywhere it matters.",
-    desc: "From premium custom websites and robust e-commerce platforms to data-driven SEO and social media campaigns.",
-    bullets: ["Custom Web Development", "SEO & Digital Marketing", "Social Media Management"],
+    tag: "Enterprise Web",
+    title: "DXP & Headless Ecosystems.",
+    desc: "Migrate from brittle legacy systems to modern, highly secure Digital Experience Platforms and Headless CMS architectures built for scale.",
+    bullets: ["DXP Replatforming", "Headless CMS Integration", "Core Web Vitals Mastery"],
   },
   {
-    tag: "Mobile Solutions",
-    title: "High-performance apps for iOS & Android.",
-    desc: "Engage your users on the go with fluid, native-feeling mobile applications designed for speed and reliability.",
-    bullets: ["Cross-platform development", "UI/UX App Design", "App Store Optimization"],
+    tag: "Mobile Innovation",
+    title: "Intelligent Mobile Experiences.",
+    desc: "High-fidelity applications with embedded on-device AI, hyper-personalization engines, and 5G-optimized cloud computations.",
+    bullets: ["Embedded ML Models", "Hyper-Personalization", "Cross-platform Agility"],
   },
   {
-    tag: "IT & Infrastructure",
-    title: "Secure, reliable, and always on.",
-    desc: "Comprehensive IT support, system monitoring, and zero-downtime maintenance so you can focus on your business.",
-    bullets: ["Monthly on-site maintenance", "Unlimited technical assistance", "Security & Data Protection"],
+    tag: "Agentic AI",
+    title: "Autonomous Workflow Engines.",
+    desc: "Deploy autonomous AI agents that handle complex business logic, customer care, and cross-platform automation with absolute precision.",
+    bullets: ["Autonomous AI Agents", "Predictive Analytics", "DevOps-Native Deployment"],
   },
 ];
 
@@ -29,7 +29,10 @@ export function Showcase() {
     registerGsapPlugins();
     if (prefersReducedMotion()) return;
 
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
+      // Desktop: Pinned cross-fade
       const panelsEl = gsap.utils.toArray<HTMLElement>("[data-showcase-panel]");
       const mediaEl = gsap.utils.toArray<HTMLElement>("[data-showcase-media]");
 
@@ -72,42 +75,95 @@ export function Showcase() {
 
         // exit (except last)
         if (i < panelsEl.length - 1) {
-          tl.to(panel, { autoAlpha: 0, y: -30, filter: "blur(12px)", duration: 0.22, ease: "power2.inOut" });
+          tl.to(panel, {
+            autoAlpha: 0,
+            y: -30,
+            filter: "blur(12px)",
+            duration: 0.22,
+            ease: "power2.inOut",
+          });
         }
       });
-    }, root);
-    return () => ctx.revert();
+    });
+
+    mm.add("(max-width: 1023px)", () => {
+      // Mobile: Simple scroll-triggered entrance
+      const panelsEl = gsap.utils.toArray<HTMLElement>("[data-showcase-panel]");
+      const mediaEl = gsap.utils.toArray<HTMLElement>("[data-showcase-media]");
+
+      panelsEl.forEach((panel, i) => {
+        gsap.fromTo(
+          panel,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: panel,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        const media = mediaEl[i];
+        if (media) {
+          gsap.fromTo(
+            media,
+            { opacity: 0, scale: 0.95 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 1,
+              delay: 0.1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: panel,
+                start: "top 85%",
+              },
+            }
+          );
+        }
+      });
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
-    <section ref={root} className="relative pt-22 h-screen">
+    <section ref={root} className="relative pt-22 lg:h-screen">
       <div className="container-px mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center relative z-10">
           <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">Platform</p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            An end-to-end partner for your <span className="text-gradient-magenta">digital transformation</span>.
+            Engineering your <span className="text-gradient-magenta">digital reality</span>.
           </h2>
         </div>
 
-        <div className="relative min-h-[min(85vh,52rem)] lg:min-h-[min(85vh,24rem)]">
+        <div className="relative mt-16 space-y-24 lg:mt-0 lg:space-y-0 lg:min-h-[min(85vh,24rem)]">
           {panels.map((p, i) => (
             <div
               key={p.title}
               data-showcase-panel
-              className={`absolute inset-0 isolate grid items-center gap-10 lg:grid-cols-2 ${
+              className={`isolate grid items-center gap-10 lg:absolute lg:inset-0 lg:grid-cols-2 ${
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
-              style={{ opacity: i === 0 ? 1 : 0, visibility: i === 0 ? "visible" : "hidden" }}
+              style={{ 
+                // Initial state for desktop GSAP context
+                // On mobile these will be overwritten by classes/GSAP
+              }}
             >
-              <div>
+              <div className="text-center lg:text-left">
                 <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-primary-glow">
                   {p.tag}
                 </span>
                 <h3 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
                   {p.title}
                 </h3>
-                <p className="mt-4 max-w-md text-muted-foreground">{p.desc}</p>
-                <ul className="mt-6 space-y-2 text-sm">
+                <p className="mt-4 max-w-md mx-auto lg:mx-0 text-muted-foreground">{p.desc}</p>
+                <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 lg:block lg:space-y-2 text-sm">
                   {p.bullets.map((b) => (
                     <li key={b} className="flex items-center gap-2 text-foreground/85">
                       <span className="h-1.5 w-1.5 rounded-full bg-primary-glow shadow-[0_0_8px] shadow-primary-glow" />
@@ -138,7 +194,7 @@ function MockPanel({ index }: { index: number }) {
   if (index === 0) {
     // Web & Marketing Mockup
     return (
-      <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-5 shadow-elegant h-full flex flex-col aspect-[4/3] lg:aspect-auto min-h-[300px]">
+      <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-5 shadow-elegant h-full flex flex-col aspect-[4/3] lg:aspect-auto min-h-[18.75rem]">
         <div className="flex gap-1.5 mb-6">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
@@ -166,13 +222,13 @@ function MockPanel({ index }: { index: number }) {
   if (index === 1) {
     // Mobile Solutions Mockup
     return (
-      <div className="relative flex justify-center items-center h-full min-h-[300px]">
+      <div className="relative flex justify-center items-center h-full min-h-[18.75rem]">
         {/* Floating wrapper */}
         <div className="animate-float-slow w-full h-full flex justify-center items-center">
-          <div className="w-[200px] h-[380px] glow-ring relative overflow-hidden rounded-[2.5rem] border-[6px] border-surface-elevated bg-black shadow-elegant rotate-[-15deg] z-1">
+          <div className="w-[12.5rem] h-[23.75rem] glow-ring relative overflow-hidden rounded-[2.5rem] border-[0.375rem] border-surface-elevated bg-black shadow-elegant rotate-[-15deg] z-1">
           {/* Notch */}
           <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-10">
-            <div className="w-24 h-5 bg-surface-elevated rounded-b-2xl"></div>
+            <div className="w-[6rem] h-[1.25rem] bg-surface-elevated rounded-b-2xl"></div>
           </div>
           {/* Screen Content */}
           <div className="pt-12 px-4 pb-4 flex flex-col gap-4 h-full relative z-0">
@@ -206,7 +262,7 @@ function MockPanel({ index }: { index: number }) {
 
   // IT & Infrastructure Mockup
   return (
-    <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-6 shadow-elegant h-full flex flex-col justify-center gap-4 min-h-[200px]">
+    <div className="glow-ring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-surface to-surface-elevated p-6 shadow-elegant h-full flex flex-col justify-center gap-4 min-h-[12.5rem]">
       <div className="mb-2 flex items-center justify-between text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
         <span>Network Status</span>
         <span className="text-green-400 flex items-center gap-1.5">

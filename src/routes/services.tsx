@@ -6,16 +6,16 @@ import { CTA } from "@/components/CTA";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Procode Egypt" },
+      { title: "Services — Procode" },
       {
         name: "description",
         content:
           "IT Management, Web Development, Mobile Apps, Digital Marketing, Social Media Management, and Media Production services for SMEs and NGOs.",
       },
-      { property: "og:title", content: "Services — Procode Egypt" },
+      { property: "og:title", content: "Services — Procode" },
       {
         property: "og:description",
-        content: "Hassle-Free Technology services for Egyptian businesses.",
+        content: "Hassle-Free Technology services for businesses worldwide.",
       },
     ],
   }),

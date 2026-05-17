@@ -73,17 +73,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0610" },
-      { title: "Procode Egypt — Hassle-Free Technology" },
+      { title: "Procode — Next-Gen AI & Digital Reality Engineering" },
       {
         name: "description",
         content:
-          "Procode Egypt provides Hassle-Free Technology for SMEs and NGOs, including IT Management, Web Development, Mobile Apps, Digital Marketing, and Media Production.",
+          "Procode is a high-end digital engineering agency specializing in bespoke AI solutions, enterprise web ecosystems, and high-performance mobile applications.",
       },
-      { property: "og:title", content: "Procode Egypt — Hassle-Free Technology" },
+      { property: "og:title", content: "Procode — Next-Gen AI & Digital Reality Engineering" },
       {
         property: "og:description",
         content:
-          "IT Management, Web Development, Mobile Apps, Digital Marketing, Social Media Management, and Media Production for Egyptian businesses.",
+          "Bespoke AI solutions, enterprise web ecosystems, and high-performance mobile applications for the global market.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

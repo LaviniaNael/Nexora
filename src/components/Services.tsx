@@ -22,34 +22,34 @@ import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
  */
 const services = [
   {
-    icon: ShieldCheck,
-    title: "IT Management",
-    desc: "Comprehensive IT support with unlimited technical assistance, system monitoring, and monthly on-site maintenance.",
+    icon: Brain,
+    title: "AI & Automation",
+    desc: "Autonomous AI agents and intelligent workflow automation to turn complex business logic into self-driving growth engines.",
   },
   {
     icon: Code2,
-    title: "Web Development",
-    desc: "Custom websites and web applications with premium quality design, database management, and SEO optimization.",
+    title: "Enterprise Web",
+    desc: "Scalable DXP and Headless CMS architectures designed for high-performance enterprise ecosystems and seamless replatforming.",
   },
   {
     icon: Smartphone,
-    title: "Mobile Apps",
-    desc: "High-performance iOS and Android applications designed to engage users and streamline business processes.",
+    title: "Mobile Innovation",
+    desc: "Intelligent iOS and Android applications with embedded machine learning and hyper-personalization engines.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "DevOps & Cloud",
+    desc: "Secure, highly-scalable cloud infrastructure and automated pipelines ensuring zero-downtime deployment cycles.",
   },
   {
     icon: Globe,
-    title: "Digital Marketing",
-    desc: "Strategic visibility solutions to help small businesses compete in their niche and gain time in the spotlight.",
-  },
-  {
-    icon: Brain,
-    title: "Social Media Management",
-    desc: "Handle platform algorithm changes and maintain consistent online presence without technical overwhelm.",
+    title: "Predictive Analytics",
+    desc: "Data-driven ML models that identify market trends and assess purchase likelihood to empower executive decision-making.",
   },
   {
     icon: Cloud,
-    title: "Managed Cloud Services",
-    desc: "Scale your operations with secure cloud hosting, automated disaster recovery, and 24/7 server monitoring.",
+    title: "Intelligent Dashboards",
+    desc: "Custom e-commerce and marketing command centers with real-time analytics and AI-powered recommendation systems.",
   },
 ];
 
@@ -496,11 +496,10 @@ export function Services() {
           <div data-services-head className="mx-auto max-w-2xl text-center pt-10">
             <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">Services</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              Complete <span className="text-gradient-magenta">Hassle-Free</span> Solutions.
+              Next-Gen <span className="text-gradient-magenta">Digital</span> Reality Engineering.
             </h2>
             <p className="mt-3 text-sm sm:text-base text-muted-foreground">
-              From IT infrastructure to digital marketing, we handle all the technicalities
-              so you can focus on your business passion.
+              From autonomous AI agents to enterprise software, we architect the systems that accelerate your profit margins.
             </p>
           </div>
 

@@ -30,7 +30,7 @@ export function Navbar() {
     >
       <div className="container-px mx-auto flex h-16 max-w-7xl items-center justify-between">
         <a href="/" className="group flex items-center gap-2">
-          <img src="/logo.webp" alt="Procode Logo" className="h-7 w-auto" />
+          <img src="/logo.webp" alt="Procode Logo" className="md:h-7 h-5 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -54,10 +54,10 @@ export function Navbar() {
         <div className="hidden md:block">
           <a
             href="/contact"
-            className="group relative inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-medium text-foreground transition-all hover:border-primary/40 hover:bg-primary/10"
+            className="group relative inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-foreground transition-all hover:border-primary/40 hover:bg-primary/10"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow shadow-[0_0_10px] shadow-primary-glow animate-glow-pulse" />
-            Start a project
+            Get in Touch
           </a>
         </div>
 

@@ -7,16 +7,16 @@ import { Testimonials } from "@/components/Testimonials";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Procode Egypt" },
+      { title: "About — Procode" },
       {
         name: "description",
         content:
-          "Procode Egypt provides Hassle-Free Technology for SMEs and NGOs, bridging the gap between business passion and technical complexities.",
+          "Procode provides Hassle-Free Technology for SMEs and NGOs, bridging the gap between business passion and technical complexities.",
       },
-      { property: "og:title", content: "About — Procode Egypt" },
+      { property: "og:title", content: "About — Procode" },
       {
         property: "og:description",
-        content: "Hassle-Free Technology provider for Egyptian businesses.",
+        content: "Hassle-Free Technology provider for businesses worldwide.",
       },
     ],
   }),
@@ -28,28 +28,28 @@ function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="Your External"
-        highlight="IT Department."
-        subtitle="Procode Egypt is your Hassle-Free Technology partner, providing unlimited technical support, web development, and digital marketing for SMEs and NGOs across Egypt."
+        title="Your Digital Reality"
+        highlight="Engineering Partner."
+        subtitle="Procode is a high-end digital engineering agency specializing in AI solutions, bespoke mobile applications, and enterprise web ecosystems for the global market."
       />
       <section className="container-px mx-auto max-w-5xl pb-20">
         <div className="grid gap-10 sm:grid-cols-2">
           {[
             [
               "Mission",
-              "Bridge the gap between your business passion and technical complexities. We handle the technicalities so you can focus on growth.",
+              "To accelerate enterprise growth by deploying intelligent software ecosystems. we transition businesses from legacy cost-centers to high-velocity profit-centers.",
             ],
             [
               "Approach",
-              "Unlimited technical support with monthly on-site visits. We're your external IT department, always available when you need us.",
+              "DevOps-native engineering combined with strategic AI integration. We don't just write code; we architect secure, scalable digital realities.",
             ],
             [
               "Operating model",
-              "Hassle-Free Technology with predictable costs. No surprises, just reliable IT management and digital services.",
+              "Outcome-driven engineering with absolute transparency. We guarantee 100% ownership of source code, domains, and infrastructure for our clients.",
             ],
             [
               "Standards",
-              "Professional experts with years of experience serving SMEs and NGOs across Egypt. We treat your business like our own.",
+              "Professional experts with deep expertise in LLMs, predictive analytics, and high-performance mobile architectures.",
             ],
           ].map(([t, d]) => (
             <div

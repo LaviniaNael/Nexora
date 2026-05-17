@@ -2,11 +2,11 @@ import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
 
 const stats = [
-  { value: 240, suffix: "+", label: "Projects delivered" },
-  { value: 99.99, suffix: "%", label: "Average uptime", decimals: 2 },
-  { value: 180, suffix: "+", label: "Enterprise clients" },
-  { value: 64, suffix: "%", label: "Avg. performance lift" },
-  { value: 92, suffix: "%", label: "Workflow automation" },
+  { value: 240, suffix: "+", label: "AI Solutions Deployed" },
+  { value: 99.99, suffix: "%", label: "System Uptime SLA", decimals: 2 },
+  { value: 180, suffix: "+", label: "Global Engagements" },
+  { value: 64, suffix: "%", label: "Avg. Margin Acceleration" },
+  { value: 92, suffix: "%", label: "Agentic Automation" },
 ];
 
 export function Stats() {

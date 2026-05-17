@@ -76,7 +76,7 @@
   --gradient-primary: linear-gradient(135deg, oklch(0.46 0.165 5), oklch(0.62 0.21 5));
   --gradient-radial: radial-gradient(circle at 50% 0%, oklch(0.46 0.165 5 / 0.35), transparent 60%);
   --gradient-text: linear-gradient(180deg, oklch(0.98 0.005 280), oklch(0.7 0.02 285));
-  --gradient-magenta: linear-gradient(135deg, #ff5b8a 0%, #8b1744 60%, #3a0a1e 100%);
+  --gradient-magenta: linear-gradient(135deg, #ff5b8a 0%, #8b1744 60%, #50112b 100%);
 
   --shadow-glow: 0 0 80px -20px oklch(0.55 0.2 5 / 0.55);
   --shadow-elegant: 0 30px 80px -30px oklch(0 0 0 / 0.7);
@@ -86,6 +86,18 @@
 }
 
 @layer base {
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      /* Fluid base: 16px at 1280px -> ~1.25vw. Using a slightly more conservative 1.1vw */
+      font-size: clamp(16px, 1.1vw, 22px);
+    }
+  }
+
   * {
     border-color: var(--color-border);
   }
@@ -175,14 +187,14 @@
     background-image:
       linear-gradient(var(--grid-color) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 56px 56px;
+    background-size: 3.5rem 3.5rem;
   }
 
   .bg-grid-sm {
     background-image:
       linear-gradient(var(--grid-color) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 28px 28px;
+    background-size: 1.75rem 1.75rem;
   }
 
   .glass {

@@ -86,43 +86,43 @@ export function Hero() {
         style={{ background: "var(--gradient-radial)" }}
       />
 
-      <div className="container-px mx-auto max-w-7xl">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+      <div className="container-px mx-auto max-w-5xl">
+        <div className="mx-auto mt-10 lg:mt-4 flex max-w-3xl flex-col items-center text-center">
           <div
             data-hero-eyebrow
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-muted-foreground backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1 text-xs text-muted-foreground backdrop-blur px-4"
           >
             <Sparkles size={12} className="text-primary-glow" />
-            <span>Hassle-Free Technology</span>
+            <span>Next-Gen AI & Digital Solutions</span>
           </div>
 
-          <h1 className="mt-6 font-display text-[clamp(2.6rem,6vw,3.6rem)] font-semibold leading-[0.98] tracking-tight">
+          <h1 className="mt-6 font-display text-[clamp(2.6rem,4.8vw,3.6rem)] font-semibold leading-[0.98] tracking-tight text-balance">
             <span>
-              <span data-hero-line className="text-gradient">Hassle-Free</span>
+              <span data-hero-line className="block text-gradient">Build your Business’s</span>
             </span>
             <span>
               <span data-hero-line >
-                <span className="text-gradient-magenta">Technology</span>
+                <span className="text-gradient-magenta"> Online</span>
               </span>
             </span>
-            <span className="block">
-              <span data-hero-line className="block text-gradient"> for Your Business.</span>
+            <span >
+              <span data-hero-line className="text-gradient"> Presence.</span>
             </span>
           </h1>
 
           <p
             data-hero-sub
-            className="mt-6 max-w-xl text-balance text-base text-muted-foreground"
+            className="mt-6 max-w-xl text-balance text-sm text-muted-foreground"
           >
-            Procode provides unlimited IT support, web development, and digital marketing
-            for SMEs and NGOs across Egypt. Focus on your passion, we'll handle the technicalities.
+            Procode accelerates enterprise growth through bespoke AI solutions, high-performance mobile apps, and 
+            advanced web ecosystems. We transition your business from maintenance to acceleration.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
 
             <a
               href="/contact"
-              className="group relative inline-flex h-12 items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary-glow px-6 text-sm font-medium text-white shadow-glow transition-transform"
+              className="group relative inline-flex h-11 md:h-12 px-8 lg:px-6 items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary-glow text-sm font-medium text-white shadow-glow transition-transform hover:shadow-glow"
             >
               <span className="relative z-10">Start a project</span>
 
@@ -145,18 +145,18 @@ export function Hero() {
 
             <a
               href="/case-studies"
-              className="group relative inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-6 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
+              className="group relative inline-flex h-11 md:h-12 px-8 lg:px-6 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
             >
               View case studies
             </a>
 
           </div>
 
-          <div className="mt-12 grid w-full max-w-2xl grid-cols-3 gap-4 text-left">
+          <div className="mt-12 grid w-72 md:w-auto max-w-2xl grid-cols-2 gap-4 text-left lg:grid-cols-3">
             {[
-              { k: "500+", v: "Clients served" },
-              { k: "24/7", v: "Support available" },
-              { k: "15+", v: "Years experience" },
+              { k: "99.9%", v: "Uptime SLA" },
+              { k: "250+", v: "Engagements" },
+              { k: "DevOps", v: "Native DNA" },
             ].map((s) => (
               <div
                 key={s.k}

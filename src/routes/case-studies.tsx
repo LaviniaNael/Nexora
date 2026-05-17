@@ -5,16 +5,16 @@ import { ArrowUpRight } from "lucide-react";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies — Procode Egypt" },
+      { title: "Case Studies — Procode" },
       {
         name: "description",
         content:
-          "How Procode Egypt helped SMEs and NGOs with Hassle-Free Technology — selected success stories.",
+          "How Procode helped SMEs and NGOs with Hassle-Free Technology — selected success stories.",
       },
-      { property: "og:title", content: "Case Studies — Procode Egypt" },
+      { property: "og:title", content: "Case Studies — Procode" },
       {
         property: "og:description",
-        content: "Success stories from Egyptian businesses.",
+        content: "Success stories from businesses worldwide.",
       },
     ],
   }),
@@ -23,43 +23,42 @@ export const Route = createFileRoute("/case-studies")({
 
 const cases = [
   {
-    client: "Cairo NGO",
+    client: "Global NGO",
     industry: "Non-profit",
-    headline: "Complete IT infrastructure setup with unlimited support.",
+    headline: "Autonomous AI Agent integration for multilingual donor support.",
+    metric: "95% automation",
+  },
+  {
+    client: "MENA Retail",
+    industry: "Retail",
+    headline: "Predictive Analytics dashboard for dynamic inventory optimization.",
+    metric: "+40% margin",
+  },
+  {
+    client: "GCC Logistics",
+    industry: "Logistics",
+    headline: "DevOps-native replatforming of legacy supply chain software.",
     metric: "Zero downtime",
   },
   {
-    client: "Alexandria Retail",
-    industry: "Retail",
-    headline: "E-commerce platform with digital marketing integration.",
-    metric: "+150% sales",
-  },
-  {
-    client: "Giza Manufacturing",
-    industry: "Manufacturing",
-    headline: "Network security and data backup implementation.",
-    metric: "100% secure",
-  },
-  {
-    client: "Mansoura Education",
+    client: "Euro EduTech",
     industry: "Education",
-    headline: "Custom web application and mobile app development.",
-    metric: "5000+ users",
+    headline: "Hyper-personalized mobile learning app with embedded ML.",
+    metric: "10k+ active users",
   },
   {
-    client: "Aswan Healthcare",
+    client: "Swiss Health",
     industry: "Healthcare",
-    headline: "Patient management system with HIPAA compliance.",
-    metric: "24/7 access",
+    headline: "Secure DXP for patient management with HIPAA-grade security.",
+    metric: "100% compliant",
   },
   {
-    client: "Luxor Tourism",
-    industry: "Tourism",
-    headline: "Digital marketing campaign and media production.",
-    metric: "+200% bookings",
+    client: "Global Fintech",
+    industry: "Financing",
+    headline: "AI-powered credit scoring engine and mobile wallet ecosystem.",
+    metric: "+200% conversion",
   },
 ];
-
 function CaseStudiesPage() {
   return (
     <>
@@ -67,7 +66,7 @@ function CaseStudiesPage() {
         eyebrow="Case Studies"
         title="Success"
         highlight="Stories."
-        subtitle="How Procode Egypt has helped SMEs and NGOs across Egypt with Hassle-Free Technology solutions."
+        subtitle="How Procode has helped SMEs and NGOs with Hassle-Free Technology solutions."
       />
       <section className="container-px mx-auto max-w-7xl pb-32">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
