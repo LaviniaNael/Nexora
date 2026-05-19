@@ -4,6 +4,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
 import { useRouterState } from "@tanstack/react-router";
 
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
+
 export function SmoothScroll() {
   const lenisRef = useRef<Lenis>(null);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -16,8 +22,10 @@ export function SmoothScroll() {
       duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      autoRaf: false, // We handle RAF manually
     });
     lenisRef.current = lenis;
+    window.lenis = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
     const raf = (time: number) => {

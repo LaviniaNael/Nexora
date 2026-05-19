@@ -14,6 +14,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { PageTransition } from "@/components/PageTransition";
+import { CinematicOverlay } from "@/components/CinematicOverlay";
+import { Preloader } from "@/components/Preloader";
 
 function NotFoundComponent() {
   return (
@@ -122,8 +124,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <Preloader />
       <SmoothScroll />
-      <ScrollRestoration />
+      <CinematicOverlay />
       <Navbar />
       <main className="min-h-screen">
         <PageTransition />

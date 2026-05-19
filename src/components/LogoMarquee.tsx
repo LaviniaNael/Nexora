@@ -1,3 +1,5 @@
+import content from "@/content.json";
+
 export function LogoMarquee() {
   const logos = [
     "ATLAS",
@@ -15,7 +17,7 @@ export function LogoMarquee() {
   return (
     <section className="container-px mx-auto mt-24 max-w-7xl">
       <p className="text-center text-xs uppercase tracking-[0.25em] text-muted-foreground">
-        Trusted by engineering teams at
+        {content.logoMarquee.title}
       </p>
       <div className="mask-fade-x mt-6 overflow-hidden">
         <div className="flex w-max animate-marquee items-center gap-14 opacity-70">

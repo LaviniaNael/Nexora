@@ -33,14 +33,14 @@ export function PageTransition() {
     gsap.fromTo(
       f,
       { y: 24, opacity: 0, filter: "blur(8px)" },
-      { 
-        y: 0, 
-        opacity: 1, 
-        filter: "blur(0px)", 
-        duration: 0.6, 
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 0.6,
         ease: "power3.out",
-        clearProps: "transform,filter" // Crucial: clean up so we don't break position:fixed pinning in children
-      }
+        clearProps: "transform,filter", // Crucial: clean up so we don't break position:fixed pinning in children
+      },
     );
   }, [key, reduce]);
 
@@ -56,4 +56,3 @@ export function PageTransition() {
     </div>
   );
 }
-

@@ -1,28 +1,8 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
+import content from "@/content.json";
 
-const faqs = [
-  {
-    q: "How do engagements typically start?",
-    a: "Every project begins with a paid discovery sprint where we map the problem, validate technical approach, and produce a delivery plan with clear milestones.",
-  },
-  {
-    q: "Do you work with existing teams?",
-    a: "Often. We embed alongside your engineers, transfer knowledge continuously, and make sure your team owns the system long after we leave.",
-  },
-  {
-    q: "Which industries do you serve?",
-    a: "Fintech, healthcare, logistics, climate, and AI-native startups make up most of our work. The common thread: complex, mission-critical systems.",
-  },
-  {
-    q: "How do you handle security and compliance?",
-    a: "Zero-trust by default. We've delivered systems certified to SOC 2, ISO 27001, HIPAA, and PCI-DSS, and bake controls into the SDLC from day one.",
-  },
-  {
-    q: "Can you integrate AI into legacy systems?",
-    a: "Yes. We specialize in safely retrofitting LLM, RAG, and agent capabilities onto existing platforms with measurable ROI.",
-  },
-];
+const faqs = content.faq.items;
 
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
@@ -30,9 +10,11 @@ export function FAQ() {
     <section className="relative py-32">
       <div className="container-px mx-auto max-w-3xl">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">FAQ</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">
+            {content.faq.eyebrow}
+          </p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            Questions, answered.
+            {content.faq.title}
           </h2>
         </div>
 

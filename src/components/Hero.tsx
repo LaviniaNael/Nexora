@@ -3,6 +3,13 @@ import { useEffect, useRef } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { HeroBackdrop } from "./HeroBackdrop";
 import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
+import content from "@/content.json";
+
+declare global {
+  interface Window {
+    triggerCinematicNav?: (id: string) => void;
+  }
+}
 
 export function Hero() {
   const root = useRef<HTMLDivElement>(null);
@@ -18,6 +25,36 @@ export function Hero() {
         duration: 0.9,
         ease: "power3.out",
       });
+
+      // Looping Typewriter Effect
+      const typewriterElement = document.querySelector("[data-hero-typewriter]");
+      if (typewriterElement && content.hero.typewriterStrings.length > 0) {
+        const words = content.hero.typewriterStrings;
+        const mainTl = gsap.timeline({ repeat: -1 });
+
+        words.forEach((word) => {
+          // Type word
+          mainTl.to(typewriterElement, {
+            duration: word.length * 0.08,
+            text: word,
+            ease: "none",
+          });
+
+          // Wait
+          mainTl.to({}, { duration: 2 });
+
+          // Erase word
+          mainTl.to(typewriterElement, {
+            duration: word.length * 0.04,
+            text: "",
+            ease: "none",
+          });
+
+          // Small pause before next word
+          mainTl.to({}, { duration: 0.3 });
+        });
+      }
+
       gsap.from("[data-hero-line]", {
         yPercent: 110,
         opacity: 0,
@@ -26,12 +63,13 @@ export function Hero() {
         stagger: 0.08,
         delay: 0.08,
       });
+
       gsap.from("[data-hero-sub]", {
         opacity: 0,
         y: 16,
         duration: 1,
         ease: "power3.out",
-        delay: 0.5,
+        delay: 1.2,
       });
       gsap.from("[data-hero-cta]", {
         opacity: 0,
@@ -39,7 +77,7 @@ export function Hero() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.1,
-        delay: 0.75,
+        delay: 1.5,
       });
       gsap.from("[data-hero-stat]", {
         opacity: 0,
@@ -47,7 +85,7 @@ export function Hero() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.1,
-        delay: 0.95,
+        delay: 1.8,
       });
       gsap.from("[data-hero-dashboard]", {
         opacity: 0,
@@ -55,7 +93,7 @@ export function Hero() {
         scale: 0.96,
         duration: 1.2,
         ease: "power3.out",
-        delay: 0.5,
+        delay: 0.8,
       });
 
       // parallax dashboard on scroll
@@ -75,10 +113,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section
-      ref={root}
-      className="relative isolate overflow-hidden pt-16 sm:pt-24"
-    >
+    <section ref={root} id="home" className="relative isolate overflow-hidden pt-16 sm:pt-24">
       <HeroBackdrop />
       <div className="absolute inset-0 -z-10 bg-grid mask-fade-b opacity-60" />
       <div
@@ -93,82 +128,93 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] py-1 text-xs text-muted-foreground backdrop-blur px-4"
           >
             <Sparkles size={12} className="text-primary-glow" />
-            <span>Next-Gen AI & Digital Solutions</span>
+            <span>{content.hero.eyebrow}</span>
           </div>
 
-          <h1 className="mt-6 font-display text-[clamp(2.6rem,4.8vw,3.6rem)] font-semibold leading-[0.98] tracking-tight text-balance">
-            <span>
-              <span data-hero-line className="block text-gradient">Build your Business’s</span>
+          <h1 className="mt-6 font-display uppercase text-[clamp(2.5rem,6.5vw,4.8rem)] font-bold leading-[0.95] tracking-tighter text-balance min-h-[2.2em]">
+            <span data-hero-line className="block text-gradient">
+              {content.hero.titleFirstLine}
             </span>
-            <span>
-              <span data-hero-line >
-                <span className="text-gradient-magenta"> Online</span>
-              </span>
-            </span>
-            <span >
-              <span data-hero-line className="text-gradient"> Presence.</span>
+            <span className="block">
+              <span data-hero-typewriter className="text-gradient-magenta"></span>
+              <span className="inline-block w-[2px] h-[0.8em] bg-primary-glow ml-1 animate-pulse align-middle" />
             </span>
           </h1>
 
-          <p
-            data-hero-sub
-            className="mt-6 max-w-xl text-balance text-sm text-muted-foreground"
-          >
-            Procode accelerates enterprise growth through bespoke AI solutions, high-performance mobile apps, and 
-            advanced web ecosystems. We transition your business from maintenance to acceleration.
+          <p data-hero-sub className="mt-6 max-w-lg text-balance text-md font-light text-muted-foreground/80 md:text-lg">
+            {content.hero.subtitle}
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-
+          <div className="mt-8 flex items-center justify-center gap-4">
             <a
-              href="/contact"
-              className="group relative inline-flex h-11 md:h-12 px-8 lg:px-6 items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary-glow text-sm font-medium text-white shadow-glow transition-transform hover:shadow-glow"
+              href="#contact"
+              data-hero-cta
+              onClick={(e) => {
+                e.preventDefault();
+                if (typeof window.triggerCinematicNav === "function") {
+                  window.triggerCinematicNav("#contact");
+                }
+              }}
+              onMouseEnter={(e) => {
+                gsap.to(e.currentTarget, { y: -2, scale: 1.02, duration: 0.3, ease: "power2.out" });
+                const ray = e.currentTarget.querySelector(".glass-ray") as HTMLElement;
+                if (ray) {
+                  gsap.set(ray, { x: "-100%", opacity: 0 });
+                  gsap.to(ray, {
+                    x: "200%",
+                    opacity: 1,
+                    duration: 0.6,
+                    ease: "power2.inOut",
+                  });
+                }
+              }}
+              onMouseLeave={(e) =>
+                gsap.to(e.currentTarget, { y: 0, scale: 1, duration: 0.3, ease: "power2.out" })
+              }
+              className="group relative flex h-12 items-center justify-center gap-2 overflow-hidden rounded-full border border-transparent bg-gradient-to-r from-primary to-primary-glow px-8 text-sm font-medium text-white shadow-glow"
             >
-              <span className="relative z-10">Start a project</span>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="relative z-10 transition-transform group-hover:translate-x-0.5"
-              >
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </a>
-
-            <a
-              href="/case-studies"
-              className="group relative inline-flex h-11 md:h-12 px-8 lg:px-6 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-primary/10"
-            >
-              View case studies
-            </a>
-
-          </div>
-
-          <div className="mt-12 grid w-72 md:w-auto max-w-2xl grid-cols-2 gap-4 text-left lg:grid-cols-3">
-            {[
-              { k: "99.9%", v: "Uptime SLA" },
-              { k: "250+", v: "Engagements" },
-              { k: "DevOps", v: "Native DNA" },
-            ].map((s) => (
               <div
-                key={s.k}
-                data-hero-stat
-                className="rounded-xl border border-white/5 bg-white/[0.02] p-4 backdrop-blur"
-              >
-                <div className="font-display text-2xl font-semibold text-gradient-magenta">
-                  {s.k}
-                </div>
-                <div className="text-xs text-muted-foreground">{s.v}</div>
-              </div>
-            ))}
+                className="glass-ray absolute inset-0 -skew-x-[35deg] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none w-[150%] blur-[2px]"
+                style={{ transform: "translateX(-100%)" }}
+              />
+              <span className="relative z-10">{content.hero.cta}</span>
+              <ArrowRight
+                size={16}
+                className="relative z-10 transition-transform group-hover:translate-x-0.5"
+              />
+            </a>
+
+            <a
+              href="#solutions"
+              data-hero-cta
+              onClick={(e) => {
+                e.preventDefault();
+                if (typeof window.triggerCinematicNav === "function") {
+                  window.triggerCinematicNav("#solutions");
+                }
+              }}
+              onMouseEnter={(e) =>
+                gsap.to(e.currentTarget, {
+                  y: -2,
+                  scale: 1.02,
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  duration: 0.3,
+                  ease: "power2.out",
+                })
+              }
+              onMouseLeave={(e) =>
+                gsap.to(e.currentTarget, {
+                  y: 0,
+                  scale: 1,
+                  backgroundColor: "rgba(255, 255, 255, 0.03)",
+                  duration: 0.3,
+                  ease: "power2.out",
+                })
+              }
+              className="group relative flex h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-8 text-sm font-medium text-foreground transition-colors hover:border-primary/40"
+            >
+              {content.hero.secondaryCta}
+            </a>
           </div>
         </div>
 
@@ -185,20 +231,30 @@ export function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                 <span className="h-2.5 w-2.5 rounded-full bg-primary/70 shadow-[0_0_10px] shadow-primary" />
               </div>
-              <div className="font-mono text-[10px] text-muted-foreground">procode.eg / monitoring</div>
-              <div className="font-mono text-[10px] text-primary-glow animate-glow-pulse">● live</div>
+              <div className="font-mono text-[10px] text-muted-foreground">
+                procode.eg / monitoring
+              </div>
+              <div className="font-mono text-[10px] text-primary-glow animate-glow-pulse">
+                ● live
+              </div>
             </div>
             <div className="grid gap-4 p-5 sm:grid-cols-3">
               <div className="rounded-xl border border-white/5 bg-black/30 p-4">
-                <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Latency p95</div>
+                <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Latency p95
+                </div>
                 <div className="mt-2 font-display text-2xl font-semibold">42ms</div>
                 <div className="mt-3 h-16 w-full overflow-hidden rounded-md bg-gradient-to-t from-primary/20 to-transparent">
                   <Spark />
                 </div>
               </div>
               <div className="rounded-xl border border-white/5 bg-black/30 p-4">
-                <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Inferences / sec</div>
-                <div className="mt-2 font-display text-2xl font-semibold text-gradient-magenta">12,480</div>
+                <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Inferences / sec
+                </div>
+                <div className="mt-2 font-display text-2xl font-semibold text-gradient-magenta">
+                  12,480
+                </div>
                 <div className="mt-3 grid grid-cols-12 items-end gap-1">
                   {Array.from({ length: 12 }).map((_, i) => (
                     <div
@@ -210,11 +266,21 @@ export function Hero() {
                 </div>
               </div>
               <div className="rounded-xl border border-white/5 bg-black/30 p-4 font-mono text-[11px] leading-relaxed text-muted-foreground">
-                <div><span className="text-primary-glow">$</span> deploy production</div>
-                <div>→ build  <span className="text-foreground">ok</span></div>
-                <div>→ test   <span className="text-foreground">142 passed</span></div>
-                <div>→ scan   <span className="text-foreground">0 vulns</span></div>
-                <div>→ ship   <span className="text-primary-glow">live ✦</span></div>
+                <div>
+                  <span className="text-primary-glow">$</span> deploy production
+                </div>
+                <div>
+                  → build <span className="text-foreground">ok</span>
+                </div>
+                <div>
+                  → test <span className="text-foreground">142 passed</span>
+                </div>
+                <div>
+                  → scan <span className="text-foreground">0 vulns</span>
+                </div>
+                <div>
+                  → ship <span className="text-primary-glow">live ✦</span>
+                </div>
               </div>
             </div>
           </div>

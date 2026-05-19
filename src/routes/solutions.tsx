@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Showcase } from "@/components/Showcase";
 import { Stats } from "@/components/Stats";
 import { CTA } from "@/components/CTA";
+import content from "@/content.json";
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({
@@ -24,13 +25,14 @@ export const Route = createFileRoute("/solutions")({
 });
 
 function SolutionsPage() {
+  const { solutions } = content.pages;
   return (
     <>
       <PageHeader
-        eyebrow="Solutions"
-        title="Complete"
-        highlight="Digital Ecosystem."
-        subtitle="From digital marketing to media production and data backup, Procode provides end-to-end solutions for your business growth."
+        eyebrow={solutions.eyebrow}
+        title={solutions.title}
+        highlight={solutions.highlight}
+        subtitle={solutions.subtitle}
       />
       <Showcase />
       <Stats />

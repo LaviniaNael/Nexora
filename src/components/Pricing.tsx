@@ -1,54 +1,23 @@
 import { Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-
-const tiers = [
-  {
-    name: "Launch",
-    price: "$24k",
-    cadence: "/ engagement",
-    desc: "For focused MVPs and product validations.",
-    features: [
-      "Discovery & architecture",
-      "6-week build sprint",
-      "Production deploy",
-      "30-day support",
-    ],
-  },
-  {
-    name: "Scale",
-    price: "$78k",
-    cadence: "/ quarter",
-    desc: "Dedicated squad, continuous shipping rhythm.",
-    features: [
-      "Cross-functional team",
-      "AI & cloud integration",
-      "SLA & on-call",
-      "Quarterly architecture review",
-    ],
-    featured: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    cadence: "",
-    desc: "Multi-team programs, mission-critical systems.",
-    features: ["Multiple squads", "Compliance program", "24/7 SRE", "Executive sponsorship"],
-  },
-];
+import content from "@/content.json";
 
 export function Pricing() {
   return (
     <section className="relative py-32">
       <div className="container-px mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">Engagements</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">
+            {content.pricing.eyebrow}
+          </p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            Pricing built for <span className="text-gradient-magenta">serious systems.</span>
+            {content.pricing.title}{" "}
+            <span className="text-gradient-magenta">{content.pricing.titleHighlight}</span>
           </h2>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {tiers.map((t) => (
+          {content.pricing.tiers.map((t) => (
             <div
               key={t.name}
               className={`group relative overflow-hidden rounded-2xl border p-8 transition-all hover:-translate-y-1 ${
@@ -86,7 +55,7 @@ export function Pricing() {
                     : "border border-white/10 bg-white/[0.03] text-foreground hover:border-primary/40 hover:bg-primary/10"
                 }`}
               >
-                Talk to us
+                {content.pricing.cta}
               </Link>
             </div>
           ))}

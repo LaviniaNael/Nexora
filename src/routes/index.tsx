@@ -1,23 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/Hero";
 import { LogoMarquee } from "@/components/LogoMarquee";
+import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { Showcase } from "@/components/Showcase";
-import { Stats } from "@/components/Stats";
-import { Process } from "@/components/Process";
 import { Testimonials } from "@/components/Testimonials";
-import { Pricing } from "@/components/Pricing";
 import { FAQ } from "@/components/FAQ";
-import { CTA } from "@/components/CTA";
+import { Contact } from "@/components/contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Procode — Next-Gen AI & Digital Reality Engineering" },
+      { title: "Procode — High-Performance Web, Mobile & IT Engineering" },
       {
         name: "description",
         content:
-          "Procode is a high-end digital engineering agency specializing in bespoke AI solutions, enterprise web ecosystems, and high-performance mobile applications.",
+          "Procode is a premium digital engineering agency specializing in robust web ecosystems, high-performance mobile applications, and strategic IT infrastructure.",
       },
     ],
   }),
@@ -29,14 +27,13 @@ function Index() {
     <>
       <Hero />
       <LogoMarquee />
+      <About />
       <Services />
       <Showcase />
-      <Stats />
-      <Process />
       <Testimonials />
       {/* <Pricing /> */}
       <FAQ />
-      <CTA />
+      <Contact />
     </>
   );
 }

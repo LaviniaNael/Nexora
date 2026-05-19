@@ -1,6 +1,7 @@
 // import { Link } from "@tanstack/react-router";
 import { Facebook, Linkedin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import content from "@/content.json";
 
 export function Footer() {
   return (
@@ -16,10 +17,7 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <img src="/logo.webp" alt="Procode Logo" className="lg:h-6 h-5 w-auto" />
             </div>
-            <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-              Hassle-Free Technologies.
-            </p>
-            
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground">{content.footer.tagline}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 md:col-span-7 md:grid-cols-3">
@@ -39,7 +37,6 @@ export function Footer() {
                 { to: "/services", label: "Mobile Apps" },
               ]}
             />
-            
           </div>
         </div>
 
@@ -47,26 +44,29 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Procode. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <a
-                href="https://www.facebook.com/procode.eg" target="_blank"
-                className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-                aria-label="social"
-              >
-                <Facebook size={15} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/procode-eg" target="_blank"
-                className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-                aria-label="social"
-              >
-                <Linkedin size={15} />
-              </a>
-              <a
-                href="https://wa.me/201553838208" target="_blank"
-                className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-                aria-label="social"
-              >
-                <FaWhatsapp size={15} />
-              </a>
+              href={content.footer.links.facebook}
+              target="_blank"
+              className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+              aria-label="social"
+            >
+              <Facebook size={15} />
+            </a>
+            <a
+              href={content.footer.links.linkedin}
+              target="_blank"
+              className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+              aria-label="social"
+            >
+              <Linkedin size={15} />
+            </a>
+            <a
+              href={content.footer.links.whatsapp}
+              target="_blank"
+              className="rounded-md border border-white/10 bg-white/[0.02] p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+              aria-label="social"
+            >
+              <FaWhatsapp size={15} />
+            </a>
           </div>
         </div>
       </div>

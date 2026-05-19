@@ -1,13 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion, registerGsapPlugins } from "@/lib/gsap";
+import content from "@/content.json";
 
-const stats = [
-  { value: 240, suffix: "+", label: "AI Solutions Deployed" },
-  { value: 99.99, suffix: "%", label: "System Uptime SLA", decimals: 2 },
-  { value: 180, suffix: "+", label: "Global Engagements" },
-  { value: 64, suffix: "%", label: "Avg. Margin Acceleration" },
-  { value: 92, suffix: "%", label: "Agentic Automation" },
-];
+const stats = content.stats.items;
 
 export function Stats() {
   const root = useRef<HTMLDivElement>(null);
@@ -17,6 +12,19 @@ export function Stats() {
     if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
+      gsap.fromTo(
+        "[data-stats-head]",
+        { opacity: 0, y: 20, filter: "blur(10px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          ease: "power3.out",
+          duration: 1,
+          scrollTrigger: { trigger: root.current, start: "top 80%" },
+        },
+      );
+
       gsap.fromTo(
         "[data-stats-shell]",
         { opacity: 0, y: 26, rotateX: -10, transformPerspective: 1200, filter: "blur(12px)" },
@@ -50,8 +58,19 @@ export function Stats() {
   }, []);
 
   return (
-    <section ref={root} className="relative py-24">
+    <section ref={root} className="relative py-32">
       <div className="container-px mx-auto max-w-7xl">
+        <div data-stats-head className="mx-auto mb-16 max-w-2xl text-center">
+          <p className="text-xs uppercase tracking-[0.25em] text-primary-glow">
+            {content.stats.eyebrow}
+          </p>
+          <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            {content.stats.title}{" "}
+            <span className="text-gradient-magenta">{content.stats.titleHighlight}</span>{" "}
+            {content.stats.titleSuffix}
+          </h2>
+        </div>
+
         <div
           data-stats-shell
           className="rounded-3xl border border-white/5 bg-gradient-to-b from-surface/60 to-surface-elevated/30 p-10 backdrop-blur"

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Services as ServicesGrid } from "@/components/Services";
 import { CTA } from "@/components/CTA";
+import content from "@/content.json";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -23,13 +24,14 @@ export const Route = createFileRoute("/services")({
 });
 
 function ServicesPage() {
+  const { services } = content.pages;
   return (
     <>
       <PageHeader
-        eyebrow="Services"
-        title="Hassle-Free"
-        highlight="Technology Solutions."
-        subtitle="From IT infrastructure to digital marketing, Procode handles all the technicalities so you can focus on your business passion."
+        eyebrow={services.eyebrow}
+        title={services.title}
+        highlight={services.highlight}
+        subtitle={services.subtitle}
       />
       <ServicesGrid />
       <CTA />
