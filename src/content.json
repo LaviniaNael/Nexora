@@ -3,11 +3,10 @@
     "eyebrow": "High-Performance Digital Engineering",
     "titleFirstLine": "Scale your digital",
     "typewriterStrings": [
-      "Online Presence.",
-      "Mobile Ecosystem.",
-      "Cloud Infrastructure.",
-      "AI Strategy.",
-      "Future Growth."
+      "High-Performance Web.",
+      "Seamless Mobile.",
+      "Smart AI Logic.",
+      "Future Architecture."
     ],
     "subtitle": "Procode delivers enterprise-grade web ecosystems, high-performance mobile apps, and robust IT infrastructure. We combine world-class engineering with strategic AI to accelerate your business.",
     "cta": "Start a project",
@@ -18,9 +17,18 @@
   },
   "about": {
     "eyebrow": "ABOUT",
-    "headline": ["ENGINEERED", "FOR", "DIGITAL", "DOMINANCE."],
+    "headline": [
+      "ENGINEERED",
+      "FOR",
+      "DIGITAL",
+      "DOMINANCE."
+    ],
     "description": "We build robust digital infrastructure and high-performance applications designed for reliability, scale, and seamless user experiences.",
-    "features": ["Full-Stack Engineering", "Mobile Ecosystems", "IT Infrastructure & AI"]
+    "features": [
+      "Full-Stack Engineering",
+      "Mobile Ecosystems",
+      "IT Infrastructure & AI"
+    ]
   },
   "services": {
     "eyebrow": "Services",
@@ -99,11 +107,32 @@
     "titleHighlight": "growth",
     "titleSuffix": "in every line.",
     "items": [
-      { "value": 240, "suffix": "+", "label": "AI Solutions Deployed" },
-      { "value": 99.99, "suffix": "%", "label": "System Uptime SLA", "decimals": 2 },
-      { "value": 180, "suffix": "+", "label": "Global Engagements" },
-      { "value": 64, "suffix": "%", "label": "Avg. Margin Acceleration" },
-      { "value": 92, "suffix": "%", "label": "Agentic Automation" }
+      {
+        "value": 240,
+        "suffix": "+",
+        "label": "AI Solutions Deployed"
+      },
+      {
+        "value": 99.99,
+        "suffix": "%",
+        "label": "System Uptime SLA",
+        "decimals": 2
+      },
+      {
+        "value": 180,
+        "suffix": "+",
+        "label": "Global Engagements"
+      },
+      {
+        "value": 64,
+        "suffix": "%",
+        "label": "Avg. Margin Acceleration"
+      },
+      {
+        "value": 92,
+        "suffix": "%",
+        "label": "Agentic Automation"
+      }
     ]
   },
   "testimonials": {
@@ -181,10 +210,22 @@
   },
   "nav": {
     "links": [
-      { "to": "#", "label": "Home" },
-      { "to": "#about", "label": "About" },
-      { "to": "#services", "label": "Services" },
-      { "to": "#solutions", "label": "Solutions" }
+      {
+        "to": "#",
+        "label": "Home"
+      },
+      {
+        "to": "#about",
+        "label": "About"
+      },
+      {
+        "to": "#services",
+        "label": "Services"
+      },
+      {
+        "to": "#solutions",
+        "label": "Solutions"
+      }
     ],
     "cta": "Get in Touch"
   },
@@ -223,7 +264,12 @@
         "price": "Custom",
         "cadence": "",
         "desc": "Multi-team programs, mission-critical systems.",
-        "features": ["Multiple squads", "Compliance program", "24/7 SRE", "Executive sponsorship"]
+        "features": [
+          "Multiple squads",
+          "Compliance program",
+          "24/7 SRE",
+          "Executive sponsorship"
+        ]
       }
     ],
     "cta": "Talk to us"
